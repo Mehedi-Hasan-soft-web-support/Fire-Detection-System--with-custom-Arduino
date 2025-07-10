@@ -25,4 +25,14 @@ This project is a fire alert system designed for standalone ATmega328P microcont
 | LED           | PB0 (pin 14)           | D8          |
 | Buzzer        | PB1 (pin 15)           | D9          |
 
+📘 License
+This project is licensed under the MIT License.
+
+👨‍💻 Developed By
+Md. Mehedi Hasan
+
+
+
+![WhatsApp Image 2025-07-11 at 00 43 32_db922daf](https://github.com/user-attachments/assets/a05c33b9-aff3-4439-afbf-beb458347753)
+
  
