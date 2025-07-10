@@ -1,51 +1,28 @@
-# Fire-Detection-System--with-custom-Arduino
-# 🔥 Fire Detection System using Arduino
+# 🔥 Fire Detection System using Custom ATmega328P
 
-This project is a basic fire detection and alert system built with Arduino Uno, a flame sensor, LED, and buzzer. When fire is detected, the system activates a buzzer and LED as warning signals. 
+This project is a fire alert system designed for standalone ATmega328P microcontrollers. It uses a flame sensor to detect fire and alerts users via a buzzer and LED. The system mimics Arduino UNO behavior but runs independently on a bare-metal ATmega328P chip with the same pin configuration.
+
+---
 
 ## ⚙️ Components Used
-- Arduino Uno
-- Flame Sensor (Digital)
-- LED
+
+- ATmega328P (custom setup, no Arduino board)
+- Flame Sensor (Digital Output)
 - Buzzer
-- Jumper Wires
-- Breadboard
+- LED
+- 16 MHz Crystal + 2x 22pF capacitors
+- 10kΩ Resistor (for RESET pull-up)
+- Breadboard / Custom PCB
+- Optional: FTDI/USBasp for programming
 
-## 🔌 Circuit Diagram
-- Flame sensor: D2 (digital input)
-- LED: D8 (output)
-- Buzzer: D9 (output)
+---
 
-## 🧠 Code Overview
+## 🧠 Pin Configuration
 
-```cpp
-#define FLAME_SENSOR_PIN 2
-#define LED_PIN 8
-#define BUZZER_PIN 9
+| Component     | Pin Name (ATmega328P) | Arduino Pin |
+|---------------|------------------------|-------------|
+| Flame Sensor  | PD2 (pin 4)            | D2          |
+| LED           | PB0 (pin 14)           | D8          |
+| Buzzer        | PB1 (pin 15)           | D9          |
 
-void setup() {
-  pinMode(FLAME_SENSOR_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
-  pinMode(BUZZER_PIN, OUTPUT);
-
-  Serial.begin(9600);
-}
-
-void loop() {
-  int flameDetected = digitalRead(FLAME_SENSOR_PIN);
-
-  Serial.print("Sensor Value: ");
-  Serial.println(flameDetected);
-
-  if (flameDetected == LOW) { // Fire detected
-    Serial.println("🔥 Fire Detected!");
-    digitalWrite(LED_PIN, HIGH);
-    digitalWrite(BUZZER_PIN, HIGH);
-  } else {
-    Serial.println("✅ No Fire Detected");
-    digitalWrite(LED_PIN, LOW);
-    digitalWrite(BUZZER_PIN, LOW);
-  }
-
-  delay(200);
-}
+ 
